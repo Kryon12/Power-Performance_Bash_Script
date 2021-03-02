@@ -1,13 +1,15 @@
 #!/bin/bash
 
+usrnm="USERNAMEHERE"
+
 # This is an intitial check to check whether or not the file exists, and if not
 # create said file and set associated permissions. This file will enable/disable
 # the settings associated with this script.
-if [ -e "/home/brandan/ServiceEnable" ]; then
-  enablecheck=`cat /home/brandan/ServiceEnable`
+if [ -e "/home/$usrnm/ServiceEnable" ]; then
+  enablecheck=`cat /home/$usrnm/ServiceEnable`
 else
-  touch /home/brandan/ServiceEnable
-  chmod 777 /home/brandan/ServiceEnable
+  touch /home/$usrnm/ServiceEnable
+  chmod 777 /home/$usrnm/ServiceEnable
 fi
 
 # Determine the current power status of the system as per the reported status by the battery/system.
@@ -124,7 +126,7 @@ else
 # This is the default state of this bash script and its service.
 # ServiceEnable must be set to 1 for this to function.
  echo "Power Status: $power"
- echo "Please set /home/brandan/ServiceEnable"
+ echo "Please set /home/$usrnm/ServiceEnable"
  echo "to the value of 1 to start this service."
 fi
 
